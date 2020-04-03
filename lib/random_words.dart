@@ -35,6 +35,15 @@ Widget _buildRow(WordPair pair) {
   return ListTile(title: Text(pair.asPascalCase, 
   style: TextStyle(fontSize: 18)),
   trailing: Icon(alreadySaved ? Icons.favorite : Icons.favorite_border, color: alreadySaved ? Colors.red : null), // Icon logic.
+  onTap: () {
+    setState(() {
+      if(alreadySaved) {
+        _savedWordPairs.remove(pair);
+      } else {
+        _savedWordPairs.add(pair);
+      }
+    });
+  },
   );
 }
 
